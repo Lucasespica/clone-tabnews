@@ -24,6 +24,10 @@ export default function statusPage() {
                   color: rgb(255, 255, 255);
                   font: sans-serif;
                 }
+                h2 {
+                  color: rgb(255, 255, 255);
+                  font: sans-serif;
+                  }
                 p {
                   text-align: left;
                   color: rgb(255, 255, 255);
@@ -36,7 +40,6 @@ export default function statusPage() {
         style={{
           backgroundColor: "#00021f",
           borderRadius: "20px",
-          textAlign: "center",
           boxShadow:
             "0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
           margin: "0 auto",
@@ -47,6 +50,7 @@ export default function statusPage() {
         }}
       >
         <UpdatedAt />
+        <h2>Database</h2>
         <PostgresData />
       </div>
     </main>
@@ -76,7 +80,7 @@ function PostgresData() {
     refreshInterval: 2000,
   });
 
-  let postgresData = "Carregando...";
+  let postgresData = <p>Carregando...</p>;
 
   if (!isLoading && data) {
     const pgVersion = data.dependencies.database.version;
